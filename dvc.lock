@@ -2,4 +2,4 @@ trainer:
   cmd: python train.py
   outs:
   - path: ./metrics/classification_report.json
-    md5: c842166aaad7fdf1525885d9fc7020e5
+    md5: bb3ad94c8b19b5825eca99e412873fb5
