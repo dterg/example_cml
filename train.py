@@ -18,7 +18,8 @@ clf.fit(X_train, y_train)
 y_pred = clf.predict(X_test)
 acc = clf.score(X_test, y_test)
 
-os.mkdir("./metrics/")
+if not os.path.exists("./metrics/"):
+    os.mkdir("./metrics/")
 
 with open("./metrics/metrics.json", 'w') as outfile:
     json.dump({"accuracy": acc}, outfile)

@@ -1,0 +1,5 @@
+stages:
+  trainer:
+    cmd: python train.py
+    metrics:
+    - ./metrics/classification_report.json
