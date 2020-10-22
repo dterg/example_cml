@@ -6,14 +6,15 @@ jobs:
     container: docker://dvcorg/cml-py3:latest
     steps:
       - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
       - name: cml_run
         env:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
         run: |
           pip install -r requirements.txt
-          dvc run -n trainer -m ./metrics/classification_report.json --force python train.py
+          dvc run -n trainer -M ./metrics/classification_report.json --force python train.py
 
-          # Report metrics
           echo "## Metrics" >> report.md
           git fetch --prune
           dvc metrics diff master --show-md >> report.md
