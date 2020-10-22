@@ -16,7 +16,7 @@ jobs:
           dvc run -n trainer -M ./metrics/classification_report.json --force python train.py
 
           echo "## Metrics" >> report.md
-          git fetch --prune --unshallow
+          git fetch --prune
           dvc metrics diff master --show-md >> report.md
 
           cml-send-comment report.md
